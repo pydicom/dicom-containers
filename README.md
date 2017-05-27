@@ -26,7 +26,7 @@ sudo singularity bootstrap dcm.img Singularity
 If you want to interactively shell into the container, you can do it in read or writable mode (writable requires sudo):
 
 ```
-singularity shell dck.img
+singularity shell dcm.img
 sudo singularity shell --writable dcm.img 
 ```
 
