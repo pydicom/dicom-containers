@@ -1,4 +1,4 @@
-# Dcmtk Singularity
+# Singularity Dicom
 
 This is a quick Singularity (container) for getting started with dicom. Currently, we just install the dcmtk tools, and soon we will be adding the python bases as well. First you should install Singularity, and this is for the development branch:
 
