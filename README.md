@@ -109,17 +109,17 @@ This image will be built on Singularity Hub soon, so you don't need to build loc
 I've added an equivalent Docker image too - hey why not! You can either build locally first,
 
 ```
-docker build -t vanessa/singularity-dicom .
+docker build -t vanessa/dicom .
 ```
 
 or just skip and run as follows from Docker Hub
 
 ```
-docker run vanessa/singularity-dicom
+docker run vanessa/dicom
 ```
 
 and then the equivalent command would be:
 
 ```
-docker run --volume /path/on/host:/data vanessa/singularity-dicom storesc --help
+docker run --volume /path/on/host:/data vanessa/dicom storescu --help
 ```
