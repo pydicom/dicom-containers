@@ -1,5 +1,9 @@
 # Singularity Dicom
 
+ - [Docker Hub](https://hub.docker.com/r/vanessa/dicom/)
+ - [Singularity Hub](https://singularity-hub.org/collections/pydicom/singularity-dicom)
+
+
 This is a quick Singularity (container) for getting started with dicom. Currently, we just install the dcmtk tools, and soon we will be adding the python bases as well. First you should install Singularity, and this is for the development branch:
 
 ```
@@ -102,7 +106,13 @@ Notice that I am outputting to `/data` in the container, which is mounted at `/p
 
 
 ### Singularity Hub
-This image will be built on Singularity Hub soon, so you don't need to build locally (it takes a bit of time to compile everything!). I will also be adding other python-based dicom tools soon.
+We also provide this image for you to use on <a href="https://singularity-hub.org/collections/pydicom/singularity-dicom" target="_blank">Singularity Hub</a> (I'm hiding this down here so you might have tried building it yourself first! We provide the image on , so you can just pull it from there:
+
+```
+singularity pull --name dcm.img shub://pydicom/singularity-dicom
+```
+
+If you don't specify a `--name` it will pull as `pydicom-singularity-dicom-master.img`.  
 
 
 # Docker
