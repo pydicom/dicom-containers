@@ -103,3 +103,23 @@ Notice that I am outputting to `/data` in the container, which is mounted at `/p
 
 ### Singularity Hub
 This image will be built on Singularity Hub soon, so you don't need to build locally (it takes a bit of time to compile everything!). I will also be adding other python-based dicom tools soon.
+
+
+# Docker
+I've added an equivalent Docker image too - hey why not! You can either build locally first,
+
+```
+docker build -t vanessa/singularity-dicom .
+```
+
+or just skip and run as follows from Docker Hub
+
+```
+docker run vanessa/singularity-dicom
+```
+
+and then the equivalent command would be:
+
+```
+docker run --volume /path/on/host:/data vanessa/singularity-dicom storesc --help
+```
