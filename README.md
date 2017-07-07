@@ -133,3 +133,5 @@ and then the equivalent command would be:
 ```
 docker run --volume /path/on/host:/data vanessa/dicom storescu --help
 ```
+
+Need help? [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://badges.gitter.im/pydicom.png)
