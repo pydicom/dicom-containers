@@ -1,10 +1,13 @@
-# Singularity Dicom
+# Getting Started With Dicom
 
- - [Docker Hub](https://hub.docker.com/r/vanessa/dicom/)
+These are Singularity and Docker images that will provide you with installations of pydicom and The Dicom Toolkit. You can use this environment if you don't want to install the dependencies for both on your system.
+
+ - [Docker Hub](https://hub.docker.com/r/pydicom/dicom/)
  - [Singularity Hub](https://singularity-hub.org/collections/pydicom/singularity-dicom)
 
 
-This is a quick Singularity (container) for getting started with dicom. Currently, we just install the dcmtk tools, and soon we will be adding the python bases as well. First you should install Singularity, and this is for the development branch:
+# Singularity
+First you should install Singularity (note this is for the development branch):
 
 ```
 git clone -b development https://www.github.com/singularityware/singularity.git
@@ -21,7 +24,7 @@ The image is created with a bootstrap, meaning we create the image, then use a b
 ```
 git clone https://www.github.com/pydicom/singularity-dicom
 cd singularity-dicom
-singularity create --size 2000 dcm.img
+singularity create --size 3000 dcm.img
 sudo singularity bootstrap dcm.img Singularity
 ```
 
@@ -34,7 +37,7 @@ singularity shell dcm.img
 sudo singularity shell --writable dcm.img 
 ```
 
-## Run Things
+## Dicom Toolkit
 If you run the container without any input arguments, it will spit out the various `dcm2k` tools it provides:
 
 ```
@@ -51,6 +54,7 @@ dcmdata_tests  dcmmkcrv      dcmpsrcv	   dcmsign	 findscu   xml2dcm
 dcmdjpeg       dcmmkdir      dcmpssnd	   dcmsr_tests	 getscu    xml2dsr
 dcmdjpls       dcmmklut      dcmqridx	   dcod2lum	 img2dcm
 You can issue any of the above commands to the container.
+singularity shell [image] and run python for pydicom.
 ```
 
 You can then run a specific command (in the example below, `dcm2json`), and we just ask for help.
@@ -102,7 +106,10 @@ By default, your `$HOME` and temporary file locations are mounted. If you need t
 singularity run --bind /path/on/host:/data dcm.img [COMMANDS] --output=/data
 ```
 
-Notice that I am outputting to `/data` in the container, which is mounted at `/path/to/host` on my local machine.
+Notice that I am outputting to `/data` in the container, which is mounted at `/path/to/host` on my local machine. 
+
+## Pydicom Tools
+Python is installed at `/opt/conda` and added to the path, so if you shell into the image and run python, you should be able to easily import both and get started with pydicom. The minimal installation has been done for both [pydicom](https://www.github.com/pydicom/pydicom) and [pynetdicom3](https://www.github.com/pydicom/pynetdicom3) and if there is a library or other dependency missing, please [post an issue](https://www.github.com/pydicom/pydicom-container/issues).
 
 
 ### Singularity Hub
@@ -119,19 +126,19 @@ If you don't specify a `--name` it will pull as `pydicom-singularity-dicom-maste
 I've added an equivalent Docker image too - hey why not! You can either build locally first,
 
 ```
-docker build -t vanessa/dicom .
+docker build -t pydicom/dicom .
 ```
 
 or just skip and run as follows from Docker Hub
 
 ```
-docker run vanessa/dicom
+docker run pydicom/dicom
 ```
 
 and then the equivalent command would be:
 
 ```
-docker run --volume /path/on/host:/data vanessa/dicom storescu --help
+docker run --volume /path/on/host:/data pydicom/dicom storescu --help
 ```
 
 Need help? [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://badges.gitter.im/pydicom.png)

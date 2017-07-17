@@ -1,10 +1,10 @@
 Bootstrap: docker
-From: ubuntu:14.04
+From: continuumio/miniconda3
 
 %environment
 DCMTK_PREFIX=/opt/dcmtk361
 export DCMTK_PREFIX
-PATH=$PATH:/opt/dcmtk361/bin
+PATH=$PATH:/opt/dcmtk361/bin:/opt/conda/bin
 export PATH
 
 %runscript
@@ -12,6 +12,7 @@ export PATH
 if [ $# -eq 0 ]; then
     ls /opt/dcmtk361/bin
     echo "You can issue any of the above commands to the container."
+    echo "singularity shell [image] and run python for pydicom." 
     exit 1
 else
     exec "$@"
@@ -26,12 +27,20 @@ apt-get install -y vim
 apt-get install -y libpng12-dev 
 apt-get install -y libtiff5-dev
 apt-get install -y libxml2-dev 
-apt-get install -y libjpeg8-dev
+apt-get install -y libjpeg62-turbo-dev
 apt-get install -y zlib1g-dev  
 apt-get install -y libwrap0-dev 
 apt-get install -y libssl-dev
 
 mkdir /data
+
+# Install pydicom
+cd /tmp && git clone https://www.github.com/pydicom/pydicom.git
+cd pydicom && /opt/conda/bin/python setup.py install
+
+# Install pynetdicom
+cd /tmp && git clone https://www.github.com/pydicom/pynetdicom3.git
+cd pynetdicom3 && /opt/conda/bin/python setup.py install
 
 DCMTK_PREFIX=/opt/dcmtk361
 export DCMTK_PREFIX
