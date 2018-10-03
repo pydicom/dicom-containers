@@ -9,6 +9,8 @@ This is a collection of containers for getting started and working with dicom an
 The version of the containers corresponds with dcmtk. Versions for pydicom
 and pynetdicom (when applicable) are listed in the table below.
 
+[![CircleCI](https://circleci.com/gh/pydicom/dicom-containers.svg?style=svg)](https://circleci.com/gh/pydicom/dicom-containers)
+
 ## pydicom/dicom
 
 This [Docker Container]() is available for the following software versions:
