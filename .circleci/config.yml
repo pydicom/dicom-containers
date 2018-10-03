@@ -20,6 +20,7 @@ defaults: &defaults
   working_directory: /tmp/src
   environment:
     - CONTAINER_NAME: pydicom/dicom
+    - REPO_BASE: /tmp/src/getting-started
 
 # Installation
 
@@ -45,7 +46,7 @@ dockersave: &dockersave
     name: Docker Save
     no_output_timeout: 40m
     command: |
-      DOCKER_TAG="v$(cat /tmp/src/VERSION)"
+      DOCKER_TAG="v$(cat ${REPO_BASE}/VERSION)"
       echo "Saving ${CONTAINER_NAME}:${DOCKER_TAG} to container.tar.gz"
       mkdir -p /tmp/cache
       docker save ${CONTAINER_NAME}:${DOCKER_TAG} \
@@ -57,7 +58,7 @@ dockerdeploy: &dockerdeploy
     no_output_timeout: 40m
     command: |
       docker images
-      DOCKER_TAG="v$(cat /tmp/src/VERSION)"
+      DOCKER_TAG="v$(cat ${REPO_BASE}/VERSION)"
       echo "Container name set to ${CONTAINER_NAME}:${DOCKER_TAG}"
       if [[ -n "$DOCKER_PASS" ]]; then
             docker login -u $DOCKER_USER -p $DOCKER_PASS
@@ -71,8 +72,10 @@ dockerbuild: &dockerbuild
     name: Build development Docker container
     command: |
       echo "Building base image..."
-      VERSION=$(cat /tmp/src/VERSION)
-      docker build -t ${CONTAINER_NAME}:v${VERSION} .
+      DOCKER_TAG="v$(cat ${REPO_BASE}/VERSION)"
+      echo "cd ${REPO_BASE}"
+      cd ${REPO_BASE}
+      docker build -t ${CONTAINER_NAME}:${DOCKER_TAG} .
 
 ################################################################################
 # Jobs
