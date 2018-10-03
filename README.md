@@ -13,7 +13,7 @@ and pynetdicom (when applicable) are listed in the table below.
 
 ## pydicom/dicom
 
-This [Docker Container]() is available for the following software versions:
+This [Docker Container](https://hub.docker.com/r/pydicom/dicom) is available for the following software versions:
 
 |Image                  | dcmtk        | Pydicom    | Pynetdicom3 |
 |---------------------- |--------------|------------|-------------|
