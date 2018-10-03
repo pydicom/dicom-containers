@@ -15,8 +15,8 @@ and pynetdicom (when applicable) are listed in the table below.
 
 This [Docker Container]() is available for the following software versions:
 
-|Image                  | dcmtk        | Pydicom | Pynetdicom3 |
-|---------------------- |--------------|---------|-------------|
-| pydicom/dicom:v3.6.1  | 3.6.1        |         |             |
-| pydicom/dicom:v3.6.3  | 3.6.3        |         |             |
+|Image                  | dcmtk        | Pydicom    | Pynetdicom3 |
+|---------------------- |--------------|------------|-------------|
+| pydicom/dicom:v3.6.1  | 3.6.1        |            |             |
+| pydicom/dicom:v3.6.3  | 3.6.3        | 1.2.0.dev0 | 0.9.1       |
 
