@@ -4,10 +4,9 @@
 # defined here or within the CircleCI settings. The following environment
 # variables are acceptable here or in these settings (for sensitive information)
 #
-# CONTAINER_NAME if not set, will use Github repo and organization name 
+# CONTAINER_NAME
 # DOCKER_USER
 # DOCKER_EMAIL
-# Dockerfile optional, if the path is different than the Dockerfile in $PWD
 
 ################################################################################
 # Functions
@@ -46,7 +45,6 @@ dockersave: &dockersave
     name: Docker Save
     no_output_timeout: 40m
     command: |
-      source ${BASH_ENV}
       DOCKER_TAG="v$(cat /tmp/src/VERSION)"
       echo "Saving ${CONTAINER_NAME}:${DOCKER_TAG} to container.tar.gz"
       mkdir -p /tmp/cache
@@ -58,7 +56,6 @@ dockerdeploy: &dockerdeploy
     name: Deploy to Docker Hub
     no_output_timeout: 40m
     command: |
-      source ${BASH_ENV}
       docker images
       DOCKER_TAG="v$(cat /tmp/src/VERSION)"
       echo "Container name set to ${CONTAINER_NAME}:${DOCKER_TAG}"
@@ -73,7 +70,6 @@ dockerdeploy: &dockerdeploy
 dockerbuild: &dockerbuild
     name: Build development Docker container
     command: |
-      source ${BASH_ENV}
       echo "Building base image..."
       VERSION=$(cat /tmp/src/VERSION)
       docker build -t ${CONTAINER_NAME}:v${VERSION} .
