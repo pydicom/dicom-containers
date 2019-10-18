@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y build-essential \
                                          libjpeg62-turbo-dev \
                                          zlib1g-dev  \
                                          libwrap0-dev \ 
-                                         libssl-dev 
+                                         libssl-dev \
+                                         dcm2niix
 
 RUN mkdir /data
 
