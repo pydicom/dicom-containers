@@ -31,6 +31,7 @@ apt-get install -y libjpeg62-turbo-dev
 apt-get install -y zlib1g-dev  
 apt-get install -y libwrap0-dev 
 apt-get install -y libssl-dev
+apt-get install -y dcm2niix
 
 mkdir /data
 
