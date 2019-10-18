@@ -13,6 +13,7 @@ ADD run.sh /code
 
 RUN apt-get update && apt-get install -y build-essential \
                                          cmake  \
+                                         dcm2niix \
                                          wget \
                                          vim \
                                          libpng-dev \
