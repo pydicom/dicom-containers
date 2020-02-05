@@ -127,7 +127,7 @@ docker run --volume /path/on/host:/data pydicom/dicom storescu --help
 You can also pull the Docker container down to a Singularity image.
 
 ```bash
-$ singularity pull docker://pydicom/dicom:v3.6.4
+$ singularity pull docker://pydicom/dicom:v3.6.5
 ```
 
 Need help? [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://badges.gitter.im/pydicom.png)
