@@ -4,8 +4,8 @@ MAINTAINER vsochat@stanford.edu
 # VERSION=$(cat VERSION)
 # docker build -t pydicom/dicom:v${VERSION} .
 
-ENV DCMTK_VERSION=dcmtk-3.6.4
-ENV DCMTK_PREFIX=/opt/dcmtk364
+ENV DCMTK_VERSION=dcmtk-3.6.5
+ENV DCMTK_PREFIX=/opt/dcmtk365
 ENV PATH=$PATH:${DCMTK_PREFIX}/bin:/opt/conda/bin
 
 RUN mkdir /code
