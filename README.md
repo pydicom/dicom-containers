@@ -20,4 +20,4 @@ This [Docker Container](https://hub.docker.com/r/pydicom/dicom) is available for
 | pydicom/dicom:v3.6.1  | 3.6.1        |            |             |
 | pydicom/dicom:v3.6.3  | 3.6.3        | 1.2.0.dev0 | 0.9.1       |
 | pydicom/dicom:v3.6.4  | 3.6.4        | 1.4.0.dev0 | 1.5.0.dev0  |
-| pydicom/dicom:v3.6.5  | 3.6.5        |  |   |
+| pydicom/dicom:v3.6.5  | 3.6.5        | 2.0.0.dev0 | 1.5.0.dev0  |
